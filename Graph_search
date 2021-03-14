@@ -1,0 +1,88 @@
+#include<iostream>
+#include<list>
+#include<map>
+#include<queue>
+
+using namespace std;
+
+class Graph
+{
+    map<int, list<int> >l;
+    public:
+    int adde(int x,int y,bool isb=true)
+    {
+        l[x].push_back(y);
+        if(isb)
+          l[y].push_back(x);
+    }
+    
+    int display(int v)
+    {
+        for( int i=1;i<=v;i++)
+        {
+            cout<<i<<"-->";
+           for(int nbr:l[i])
+               cout<<nbr<<" ";
+           cout<<endl;       
+        }
+        
+    }
+    
+    int bfs(int n)
+    {
+        queue<int> q;
+        map<int,bool> visited;
+        q.push(n);
+        visited[n]=true;
+        while(!q.empty())
+        {
+            int node=q.front();
+            q.pop();
+            cout<<node<<" ";
+            for(int nbr:l[node])
+            {
+            if(!visited[nbr])
+            {
+                q.push(nbr);
+                visited[nbr]=true;
+            }
+        }
+        }
+        
+    }
+    
+void dfs_help(int src,map<int,bool> visited)
+{
+cout<<src<<" ";
+visited[src]=true;
+for(int nbr:l[src])
+{
+if(!visited[nbr])
+     dfs_help(nbr,visited);
+}
+
+}
+
+int dfs(int src)
+{
+map<int,bool> visited;
+
+dfs_help(src,visited);
+}
+    
+};
+
+int main()
+{
+    Graph g;
+    g.adde(1,2,false);
+    g.adde(1,5);
+    g.adde(2,4);
+    g.adde(2,3);
+    g.display(5);
+    g.bfs(1);
+    cout<<endl;
+    g.dfs(1);
+    return 0;
+    
+}
