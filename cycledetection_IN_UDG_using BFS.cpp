@@ -1,5 +1,5 @@
 
-
+// if we use stack instead of queue then we are using dfs.
 
 class Solution 
 {
