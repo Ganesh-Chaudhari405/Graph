@@ -1,0 +1,43 @@
+class Solution 
+{
+    public:
+    bool dfsc(vector<int> adj[],int node,int pare,vector<bool> &vis)
+    {
+        vis[node]=true;
+        
+            for(auto i: adj[node])
+               {
+                   if(!vis[i])
+                      {
+                          if(dfsc(adj,i,node,vis))
+                                return true;
+                      }
+                    else if(i!=pare)
+                         return true;
+                   
+               }
+        
+    }
+    
+    
+    
+    //Function to detect cycle in an undirected graph.
+	bool isCycle(int V, vector<int>adj[])
+	{
+	    vector<bool> vis(V,0);
+	    for(int i=0;i<V;i++)
+	     {
+	         if(!vis[i])
+	           {
+	               if(dfsc(adj,i,-1,vis))
+	                   {
+	                       return true;
+	                   }
+	               
+	           }
+	         
+	         
+	     }
+	     return false;
+	}
+};
