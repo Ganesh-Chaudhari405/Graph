@@ -26,9 +26,9 @@ void display(vector<int> g[],int &V)
 
 }
 
-void bfs(vector<int> g[],int src)
+void bfs(vector<int> g[],int src,int V)
 {
-	vector<bool> vis(g->size(),0);
+	vector<bool> vis(V,0);
 	queue<int> q; 
     
       q.push(src);
@@ -62,9 +62,9 @@ void bfs(vector<int> g[],int src)
 
 }
 
-void dfs(vector<int> g[],int src)
+void dfs(vector<int> g[],int src,int V)
 {
-	vector<bool> vis(g->size(),0);
+	vector<bool> vis(V,0);
 	stack<int> q; 
     
       q.push(src);
@@ -120,12 +120,12 @@ int V=6;
 display(g,V);
 
 cout<<"traversal";
-bfs(g,0);
+bfs(g,0,V);
 cout<<" external traversal";
-dfs(g,0);
+dfs(g,0,V);
 
 cout<<"Using interanl stack";
-vector<bool> vis1(1,0);
+vector<bool> vis1(V,0);
 dfs2(g,0,vis1);
 
 
