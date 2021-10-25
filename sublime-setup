@@ -1,0 +1,20 @@
+
+https://blog.codingblocks.com/2019/setting-up-a-c-competitive-programming-environment/
+
+
+
+
+
+Tools > Build System > New Build System
+------------------------------------------------------------------
+{
+"cmd": ["g++.exe","-std=c++17", "${file}", "-o", "${file_base_name}.exe", "&&" , "${file_base_name}.exe<inputf.in>outputf.in"],
+"shell":true,
+"working_dir":"$file_path",
+"selector":"source.cpp"
+}
+---------------------------------------------------------------------------------------------------------
+
+This can be used for piping input from the inputf.in file, and output to the outputf.in file.
+Note that this uses the -std=c++17 flag to enable the latest features of C++17. 
+If you don't want this or want to use C++14, replace this with the -std=c++14 flag.
