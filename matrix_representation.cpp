@@ -41,3 +41,51 @@ display(g);
 
 }
 
+
+
+
+--------------------------------------------------
+--------------------------------------------------
+    
+    
+#include<iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+
+int e,v;
+
+cin>>e>>v;
+vector<vector<int>> a(v,vector<int>(v,0));
+
+
+for(int i=0;i<e;i++)
+{   int x,y;
+    cin>>x>>y;
+
+    a[x][y]=1;
+    a[y][x]=1;
+
+}
+
+for(int i=0;i<v;i++)
+{
+for(int j=0;j<v;j++)
+{
+	cout<<a[i][j]<<" ";
+}
+cout<<endl;
+}
+
+
+}
+
+
+
+
+
+
+
+
