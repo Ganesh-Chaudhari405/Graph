@@ -40,3 +40,70 @@ display(g,V);
 
 
 }
+
+
+
+
+
+-------==============================================================
+    ============================================================
+    
+    
+    #include<iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+int n;
+cin>>n;
+vector<pair<int,int>> v[n];
+
+for(int i=0;i<n;i++)
+{
+	int x,y,w;
+	cin>>x>>y>>w;
+	v[x].push_back({y,w});
+	v[y].push_back({x,w});
+}
+
+cout<<"out"<<endl;
+for(int i=0;i<n;i++)
+{
+	cout<<i<<"--->";
+
+for(int j=0;j<v[i].size();j++)
+{
+	cout<<v[i][j].first<<" -> "<<v[i][j].second<<"           ";
+}
+cout<<endl;
+
+}
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
